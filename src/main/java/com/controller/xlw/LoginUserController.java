@@ -42,6 +42,7 @@ public class LoginUserController {
             return "redirect:/login/admin.jsp";
         } else if (users1 != null && "教师".equals(users1.getUser())) {
             session.setAttribute("users2", users1.getUsername());
+            session.setAttribute("users2", users1);
             return "redirect:/login/teacher.jsp";
         } else {
             session.setAttribute("fall", "登陆失败，请重新登录");

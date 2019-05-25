@@ -122,7 +122,7 @@
                     <TBODY>
                     <TR>
                         <TD class=mainMenu onClick="MenuDisplay('table_1');"><SPAN
-                                class=span id=table_1Span>＋</SPAN> 教师反馈
+                                class=span id=table_1Span>＋</SPAN> 教师服务
                         </TD>
                     </TR>
                     <TR>
@@ -134,12 +134,12 @@
                                 <TR>
                                     <TD class=menuSmall><A class=style2
                                                            href="${pageContext.request.contextPath}/teachermain.jsp"
-                                                           target=main>－ 教师反馈</A></TD>
+                                                           target=main>－ 教师个人授课</A></TD>
                                 </TR>
                                 <TR>
                                     <TD class=menuSmall><A class=style2
-                                                           href="${pageContext.request.contextPath}/card/card?code=${sessionScope.users1.username}"
-                                                           target=main>－ 一卡通充值</A></TD>
+                                                           href="${pageContext.request.contextPath}/feedback.jsp"
+                                                           target=main>－ 教师反馈</A></TD>
                                 </TR>
                                 <TR>
                                     <TD class=menuSmall><A class=style2

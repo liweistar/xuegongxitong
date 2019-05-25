@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.zj.StudentMapper">
+<mapper namespace="com.dao.zj.TeacherMapper">
   <resultMap id="mymap" type="Teacher">
       <id property="id" column="id"/>
       <result property="username" column="username"/>
@@ -19,10 +19,10 @@
           <result property="selcount" column="selcount"/>
       </association>
   </resultMap>
-    <select id="selbytc" resultMap="mymap">
-        SELECT c.*,
+    <select id="selbytt" resultMap="mymap">
+        SELECT c.*
         FROM teacher t LEFT JOIN course c
-        ON s.courseid=c.courseid
-        WHERE codeid=#{codeid}
+        ON t.tname=c.courseteacher
+        WHERE username=#{useranme}
     </select>
 </mapper>

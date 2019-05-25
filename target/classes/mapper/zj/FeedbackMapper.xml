@@ -8,6 +8,11 @@
             <result property="teaname" column="teaname"/>
             <result property="content" column="content"/>
         </resultMap>
+    <resultMap id="mymap1" type="Teacher">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="tname" column="tname"/>
+    </resultMap>
     <insert id="insFb" parameterType="Feedback">
             INSERT INTO feedback VALUE (default,#{teaname}, #{content})
     </insert>
@@ -15,5 +20,10 @@
         SELECT *
         FROM feedback
         WHERE teaname=#{teaname}
+    </select>
+    <select id="selbyte" resultMap="mymap1">
+        SELECT *
+        FROM teacher
+        WHERE username=#{useranme}
     </select>
 </mapper>

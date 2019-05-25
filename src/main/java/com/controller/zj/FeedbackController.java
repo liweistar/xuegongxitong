@@ -3,7 +3,9 @@ package com.controller.zj;
 
 import com.pojo.xlw.Users;
 import com.pojo.zj.Feedback;
+import com.pojo.zj.Teacher;
 import com.service.zj.FeedbackService;
+import com.service.zj.TeacherService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,22 +21,17 @@ public class FeedbackController {
     private FeedbackService feedbackService;
 
     @RequestMapping("inscon")
-    public String insfb(HttpServletRequest req, HttpSession session) {
-        Users user = (Users) req.getSession().getAttribute("user");
-        String content = req.getParameter("content");
-        int index = feedbackService.ins(user.getUsername(), content);
-        if (index > 0) {
-            return "redirect:teachermain.jsp";
-        } else {
-            return "error";
-        }
-
+    public String insfb(HttpServletRequest req) {
+        Users user=(Users)req.getSession().getAttribute("users2");
+        Teacher tea=feedbackService.showte(user.getUsername());
+        feedbackService.ins(tea.getTname(),req.getParameter("content"));
+        return "redirect:feedback.jsp";
     }
-    // @RequestMapping("selcontent")
-//    @ResponseBody
-//    public List<Feedback> show(HttpServletRequest req, HttpSession session){
-//      //  User user=(User)req.getSession().getAttribute("user");
-//       // return feedbackService.show(user.getName());
-//    //}
-//}
-}
+     @RequestMapping("selcontent")
+    @ResponseBody
+    public List<Feedback> show(HttpServletRequest req, HttpSession session){
+         Users user=(Users)req.getSession().getAttribute("users2");
+         Teacher tea=feedbackService.showte(user.getUsername());
+         return feedbackService.show(tea.getTname());
+        }
+    }

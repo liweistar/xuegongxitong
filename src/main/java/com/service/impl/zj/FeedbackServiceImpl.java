@@ -3,6 +3,7 @@ package com.service.impl.zj;
 
 import com.dao.zj.FeedbackMapper;
 import com.pojo.zj.Feedback;
+import com.pojo.zj.Teacher;
 import com.service.zj.FeedbackService;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +23,10 @@ public class FeedbackServiceImpl implements FeedbackService {
     @Override
     public List<Feedback> show(String teaname) {
         return feedbackMapper.selFb(teaname);
+    }
+
+    @Override
+    public Teacher showte(String username) {
+        return feedbackMapper.selbyte(username);
     }
 }
