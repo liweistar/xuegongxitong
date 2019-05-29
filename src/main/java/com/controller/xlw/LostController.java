@@ -33,7 +33,7 @@ public class LostController {
             model.addAttribute("fall2", "请上传图片");
             return "lostcard/lostcard";
         } else {
-            filename.transferTo(new File("D:/file/" + s + "." + e));
+            filename.transferTo(new File("D:\\file\\" + s + "." + e));
             lost.setImg(s + "." + e);
             lost.setHandle("待处理");
             lost.setReviewe("待审核");

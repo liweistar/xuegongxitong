@@ -46,15 +46,15 @@
                 </tr>
                 </thead>
                 <tbody id="list"></tbody>
-
-                <input type="hidden" name="code" value="${card.code}">
+                <input type="hidden" name="code" value="${sessionScope.users1.username}">
 
             </table>
+
         </div>
     </div>
     <%--    </form>--%>
     <script type="text/javascript">
-
+        //显示所有
         $(function aa() {
                 var code = $("input[name='code']").val().trim();
                 $.ajax({
@@ -63,21 +63,21 @@
                     type: "POST",
                     dataType: 'json',
                     data: {
-                        "code":code
+                        "code": code
                     },
                     success: function (data) {
                         var result = "";
 
                         $.each(data, function (i, el) {
                             result += "<tr>";
-                            result += "<td>" +code + "</td>";
-                            result += "<td>" + el.name+ "</td>";
+                            result += "<td>" + code + "</td>";
+                            result += "<td>" + el.name + "</td>";
                             result += "<td>" + el.speciality + "</td>";
                             result += "<td>" + el.money + "</td>";
                             result += "<td>" + el.power + "</td>";
                             result += "<td>" + el.date + "</td>";
-                            result +=  "<td><input type='text' name='qian' placeholder='请充值' id='qian'>";
-                            result +=  " <input type='button' class='btn btn-primary' value='充值' id='cz'/></td>";
+                            result += "<td><div class='form-inline'> <input type='text' class='form-control' style='width:120px' name='qian' placeholder='请充值' id='qian'>";
+                            result += " <input type='button' class='btn btn-primary' value='充值' id='cz'/></div></td>";
 
                         });
                         $("#list").html(result);
@@ -87,12 +87,7 @@
                     }
                 })
             },
-            $("#click1").click(function () {
-
-                window.location.href="${pageContext.request.contextPath}/lostcard/back";
-            }),
-
-            $("#cz").die('click').live('click', function() {
+            $("#cz").die('click').live('click', function () {
                 var code = $("input[name='code']").val().trim();
                 var qian = $("input[name='qian']").val().trim();
                 $.ajax({
@@ -100,25 +95,26 @@
                     url: "${pageContext.request.contextPath}/card/chongzhi",
                     type: "POST",
                     data: {
-
                         "code": code,
-                         "qian": qian
+                        "qian": qian
                     },
-                    dateType:"json",
+                    dateType: "json",
                     success: function (data) {
 
                         var result = "";
 
                         $.each(data, function (i, el) {
+
+
                             result += "<tr>";
-                            result += "<td>" +code + "</td>";
-                            result += "<td>" + el.name+ "</td>";
+                            result += "<td>" + code + "</td>";
+                            result += "<td>" + el.name + "</td>";
                             result += "<td>" + el.speciality + "</td>";
                             result += "<td>" + el.money + "</td>";
                             result += "<td>" + el.power + "</td>";
                             result += "<td>" + el.date + "</td>";
-                            result +=  "<td><input type='text' name='qian' placeholder='请充值' id='qian'>";
-                            result +=  " <input type='button' class='btn btn-primary' value='充值' id='cz'/></td>";
+                            result += "<td><div class='form-inline'> <input type='text' class='form-control' style='width:120px' name='qian' placeholder='请充值' id='qian'>";
+                            result += " <input type='button' class='btn btn-primary' value='充值' id='cz'/></div></td>";
 
                         });
                         $("#list").html(result);
@@ -127,7 +123,9 @@
                         alert("失败")
                     }
                 })
-        })
+
+            })
+
         )
     </script>
 </div>

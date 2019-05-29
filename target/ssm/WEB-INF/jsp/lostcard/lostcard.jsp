@@ -10,7 +10,7 @@
 <html>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
 
-    <script>
+<script>
     $(function aa() {
         var code = $("input[name='code']").val().trim();
         $.ajax({
@@ -18,7 +18,7 @@
             type: "POST",
             dataType: 'json',
             data: {
-                "code":code
+                "code": code
             },
             success: function (data) {
                 var result = "";
@@ -26,8 +26,8 @@
                     result += "<tr>";
                     result += "<td>" + el.code + "</td>";
                     result += "<td>" + el.name + "</td>";
-                    result += "<td>" + el.number + "</td>"
-                    result += "<td><img class='pimg' src='/pic/"+el.img+"' width=100 height=100></td>";
+                    result += "<td>" + el.number + "</td>";
+                    result += "<td><img class='pimg' src='/pic/" + el.img + "' width=100 height=100></td>";
                     result += "<td>" + el.handle + "</td>";
                     result += "<td>" + el.reviewe + "</td>";
                     result += "<td>" + el.recive + "</td>";
@@ -62,23 +62,34 @@
             </div>
         </div>
     </div>
-<form action="${pageContext.request.contextPath}/lostcard/lostcard" method="post" enctype="multipart/form-data">
-    <tr>
-        <td>学号:<input type="text" name="code" value=${sessionScope.lost.codeid}></td>
-
-        <td>姓名:<input type="text" name="name" value="${sessionScope.lost.name}"></td>
-
-        <td>手机号:<input type="text" name="number" value="${sessionScope.lost.number}"></td><br><br><br>
-
-        <td>上传身份证:<div><input type="file"  name="filename"></div></td>
-    </tr>
+    <form class="form-inline" role="form" action="${pageContext.request.contextPath}/lostcard/lostcard" method="post"
+          enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="code">学号:</label>
+            <input type="text" name="code" value=${sessionScope.lost.codeid} class="form-control" id="code"
+                   placeholder="请输入学号">
+        </div>
+        <div class="form-group">
+            <label for="name">姓名:</label>
+            <input type="text" name="name" value=${sessionScope.lost.name} class="form-control" id="name"
+                   placeholder="请输入姓名">
+        </div>
+        <div class="form-group">
+            <label for="number">手机号:</label>
+            <input type="text" name="number" value=${sessionScope.lost.number} class="form-control" id="number"
+                   placeholder="请输入手机号">
+        </div>
     <br>
-    <input type="submit" class="btn btn-primary" value="提交">
-</form>
-<div>${success}</div>
-<div>${exist}</div>
-<div>${fall2}</div>
-<div>${shibai}</div>
+        <div class="form-group">
+            <label for="inputfile">上传身份证:</label>
+            <input type="file" name="filename" id="inputfile">
+        </div>
+        <button type="submit" class="btn btn-default">提交</button>
+    </form>
+    <div>${success}</div>
+    <div>${exist}</div>
+    <div>${fall2}</div>
+    <div>${shibai}</div>
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
@@ -90,19 +101,21 @@
     </div>
     <div class="row clearfix">
         <div class="col-md-12 column">
-<table class="table table-hover table-striped">
-    <thead>
-    <tr>
-        <th>学号</th>
-        <th>姓名</th>
-        <th>手机号</th>
-        <th>身份证照片</th>
-        <th>处理</th>
-        <th>审核</th>
-        <th>可否领取</th>
-        <th>操作</th>
-    </tr></thead>
-    <tbody id="list"></tbody></table>
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>手机号</th>
+                    <th>身份证照片</th>
+                    <th>处理</th>
+                    <th>审核</th>
+                    <th>可否领取</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="list"></tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -110,7 +123,8 @@
 <script>
     $("#click1").click(function () {
 
-        window.location.href="${pageContext.request.contextPath}/lostcard/back";
+        window.location.href = "${pageContext.request.contextPath}/lostcard/back";
     })
 </script>
+
 </html>

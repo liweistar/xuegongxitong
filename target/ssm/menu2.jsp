@@ -240,7 +240,7 @@
                     </TR>
                     <TR>
                         <TD class=mainMenu onClick="MenuDisplay('table_3');"><SPAN
-                                class=span id=table_3Span>＋</SPAN> 综合查询
+                                class=span id=table_3Span>＋</SPAN> 团委服务
                         </TD>
                     </TR>
                     <TR>
@@ -249,12 +249,12 @@
                                    cellPadding=2 width=155 align=center border=0>
                                 <TBODY>
                                 <TR>
-                                    <TD class=menuSmall><A class=style2 href="#"
-                                                           target=main>－ 客户信息查询</A></TD>
+                                    <TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/Community/toqueryMy"
+                                                           target=main>－ 社团申请</A></TD>
                                 </TR>
                                 <TR>
-                                    <TD class=menuSmall><A class=style2 href="#"
-                                                           target=main>－ 联系人信息查询</A></TD>
+                                    <TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/science/toqueryMy"
+                                                           target=main>－ 立项申请</A></TD>
                                 </TR>
                                 <TR>
                                     <TD class=menuSmall><A class=style2 href="#"

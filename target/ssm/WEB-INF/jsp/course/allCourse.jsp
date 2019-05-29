@@ -41,42 +41,6 @@
         })
     });
     //更改权限
-    $("#cz").die('click').live('click', function() {
-        var code = $("input[name='code']").val().trim();
-        var qian = $("input[name='qian']").val().trim();
-        $.ajax({
-
-            url: "${pageContext.request.contextPath}/card/chongzhi",
-            type: "POST",
-            data: {
-
-                "code": code,
-                "qian": qian
-            },
-            dateType:"json",
-            success: function (data) {
-
-                var result = "";
-
-                $.each(data, function (i, el) {
-                    result += "<tr>";
-                    result += "<td>" +code + "</td>";
-                    result += "<td>" + el.name+ "</td>";
-                    result += "<td>" + el.speciality + "</td>";
-                    result += "<td>" + el.money + "</td>";
-                    result += "<td>" + el.power + "</td>";
-                    result += "<td>" + el.date + "</td>";
-                    result +=  "<td><input type='text' name='qian' placeholder='请充值' id='qian'>";
-                    result +=  " <input type='button' class='btn btn-primary' value='充值' id='cz'/></td>";
-
-                });
-                $("#list").html(result);
-            },
-            error: function () {
-                alert("失败")
-            }
-        })
-    })
     $(function aa() {
         $.ajax({
             url: "${pageContext.request.contextPath }/course/json.action",

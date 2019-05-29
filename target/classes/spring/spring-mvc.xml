@@ -21,7 +21,13 @@
         (1)加入对静态资源的处理：js,gif,png
         (2)允许使用"/"做整体映射
      -->
-
+    <!--拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.intercepter.Interceptor1"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
     <mvc:default-servlet-handler/>
     <!-- 5.文件上传-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

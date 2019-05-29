@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -28,7 +29,7 @@ public class LoginUserController {
     @Resource
     public LoginUserService loginUserService;
 
-    @RequestMapping("loginUser")
+    @RequestMapping(value = "loginUser")
     public String a(Users users, HttpSession session) {
         Users users1 = loginUserService.login(users);
         if (users1 != null && "学生".equals(users1.getUser())) {
@@ -49,5 +50,9 @@ public class LoginUserController {
             return "redirect:/login.jsp";
         }
     }
+//    @RequestMapping(value = "loginUser",method = RequestMethod.GET)
+//    public String aa(Users users, HttpSession session) {
+//        return "redirect:/login/loginUser";
+//    }
 
 }

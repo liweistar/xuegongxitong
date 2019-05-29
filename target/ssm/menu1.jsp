@@ -244,7 +244,7 @@
                     </TR>
                     <TR>
                         <TD class=mainMenu onClick="MenuDisplay('table_6');"><SPAN
-                                class=span id=table_6Span>＋</SPAN>系统管理
+                                class=span id=table_6Span>＋</SPAN>团委申请
                         </TD>
                     </TR>
                     <TR>
@@ -253,16 +253,12 @@
                                    cellPadding=2 width=155 align=center border=0>
                                 <TBODY>
                                 <TR>
-                                    <TD class=menuSmall><A class=style2 href="#"
-                                                           target=main>－角色管理</A></TD>
+                                    <TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/Community/AllCommunity"
+                                                           target=main>－社团申请</A></TD>
                                 </TR>
                                 <TR>
-                                    <TD class=menuSmall><A class=style2 href="#"
-                                                           target=main>－用户管理</A></TD>
-                                </TR>
-                                <TR>
-                                    <TD class=menuSmall><A class=style2 href="#"
-                                                           target=main>－数据字典</A></TD>
+                                    <TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/science/Allscience"
+                                                           target=main>－立项申请</A></TD>
                                 </TR>
                                 </TBODY>
                             </TABLE>
