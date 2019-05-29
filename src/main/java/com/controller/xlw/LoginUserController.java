@@ -35,7 +35,7 @@ public class LoginUserController {
         if (users1 != null && "学生".equals(users1.getUser())) {
             session.setAttribute("users2", users1.getUsername());
             session.setAttribute("users1", users1);
-            return "redirect:/login/student.jsp";
+            return "redirect:/login/GJCStu.jsp";
 
         } else if (users1 != null && "管理员".equals(users1.getUser())) {
             session.setAttribute("users2", users1.getUsername());

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.gjc.SpayMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.gjc.Spay" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="studentID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="studentName" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="tution" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="tstate" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="accex" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="astate" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, studentID, studentName, tution, tstate, accex, astate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from spay
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from spay
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.gjc.Spay" >
+    insert into spay (id, studentID, studentName, 
+      tution, tstate, accex, 
+      astate)
+    values (#{id,jdbcType=INTEGER}, #{studentid,jdbcType=INTEGER}, #{studentname,jdbcType=VARCHAR}, 
+      #{tution,jdbcType=INTEGER}, #{tstate,jdbcType=VARCHAR}, #{accex,jdbcType=INTEGER}, 
+      #{astate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.gjc.Spay" >
+    insert into spay
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="studentid != null" >
+        studentID,
+      </if>
+      <if test="studentname != null" >
+        studentName,
+      </if>
+      <if test="tution != null" >
+        tution,
+      </if>
+      <if test="tstate != null" >
+        tstate,
+      </if>
+      <if test="accex != null" >
+        accex,
+      </if>
+      <if test="astate != null" >
+        astate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="studentid != null" >
+        #{studentid,jdbcType=INTEGER},
+      </if>
+      <if test="studentname != null" >
+        #{studentname,jdbcType=VARCHAR},
+      </if>
+      <if test="tution != null" >
+        #{tution,jdbcType=INTEGER},
+      </if>
+      <if test="tstate != null" >
+        #{tstate,jdbcType=VARCHAR},
+      </if>
+      <if test="accex != null" >
+        #{accex,jdbcType=INTEGER},
+      </if>
+      <if test="astate != null" >
+        #{astate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.gjc.Spay" >
+    update spay
+    <set >
+      <if test="studentid != null" >
+        studentID = #{studentid,jdbcType=INTEGER},
+      </if>
+      <if test="studentname != null" >
+        studentName = #{studentname,jdbcType=VARCHAR},
+      </if>
+      <if test="tution != null" >
+        tution = #{tution,jdbcType=INTEGER},
+      </if>
+      <if test="tstate != null" >
+        tstate = #{tstate,jdbcType=VARCHAR},
+      </if>
+      <if test="accex != null" >
+        accex = #{accex,jdbcType=INTEGER},
+      </if>
+      <if test="astate != null" >
+        astate = #{astate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.gjc.Spay" >
+    update spay
+    set studentID = #{studentid,jdbcType=INTEGER},
+      studentName = #{studentname,jdbcType=VARCHAR},
+      tution = #{tution,jdbcType=INTEGER},
+      tstate = #{tstate,jdbcType=VARCHAR},
+      accex = #{accex,jdbcType=INTEGER},
+      astate = #{astate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from spay
+  </select>
+  <select id="selectByStudentId" resultMap="BaseResultMap" parameterType="int">
+    select * from spay where studentID=#{aaa}
+  </select>
+</mapper>
